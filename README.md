@@ -4,7 +4,7 @@
 
 ## 🏗️ 核心哲学
 
-图纸与材料“同屋”存放。在玩 Docker 的时候，最痛苦的莫过于处理 `-v` 卷映射。很多项目只给了一行 `docker run` 命令，或者默认用户能看懂复杂的 Compose 规则。结果就是：装了几个项目后，各种映射卷零零散散地躺在宿主机的各个目录里，极其混乱。
+图纸与材料“同屋”存放。在玩 Docker 的时候，最痛苦的莫过于处理 `-v` 卷映射。很多项目只给了一行 `docker run` 命令，或者默认用户能看懂的示例 `compose.yaml` 规则。结果就是：装了几个项目后，各种映射卷零零散散地躺在宿主机的各个目录里，极其混乱。
 
 本工具的核心目的：
 
@@ -21,6 +21,7 @@
 - **绝对路径规范化**：自动识别并转换 `/mnt/data:/config` 等复杂绝对路径，防止手动编写 YAML 时出现缩进或语法错误。
 - **命名卷（Named Volumes）自动声明**：当检测到非路径格式的映射（如 `db_data:/var`）时，工具会自动在 YAML 末尾生成根级别的 `volumes:` 声明块。
 - **路径安全引号**：自动为所有路径添加双引号包裹，完美避开路径中包含空格、`@`、`$` 等特殊字符导致的解析失败。
+- **系统级挂载不转换**：如 /var/run/docker.sock 等系统级挂载不会被替换。
 
 ## 🚀 为什么选择它？
 
@@ -36,32 +37,43 @@
 ### 本地运行：
 确保两个文件在同一目录下，直接用 Chrome 或 Edge 浏览器打开 `index.html`。
 
+### 自建网站运行：
+将 `index.html` 和 `volumes.js` 文件上传到你自己的 Web 服务器根目录下，然后通过访问相应的 URL（例如 `http://your-domain.com/index.html`）来运行。
+
 ### 一键转换：
-1. 粘贴从官方文档或 GitHub 看到的 `docker run` 命令。
+1. 粘贴从官方文档或 GitHub 看到的 `docker run` 命令或者示例 `compose.yaml` 规则。
 2. 确认生成的路径符合你的“统一大目录”规划。
 3. 点击“转换为 Compose 配置”并一键复制。
 
 ### 快速部署：
-在你的统一目录下创建同名文件夹，将代码存为 `docker-compose.yml`，执行：
+在你的统一目录下创建该 docker项目 同名文件夹，将代码存为 `compose.yaml`，然后执行 docker compose up -d 命令启动服务：
 
-```bash
-docker compose up -d
-📄 转换对比示例
+## 📄 转换对比示例
 原始 Docker Run 命令：
-docker run -d --name vaultwarden -v /my_docker_root/vaultwarden/data:/data -p 8080:80 vaultwarden/server:latest
-工具生成的标准化“图纸”：
-version: '3.8'
-
+```
+docker pull vaultwarden/server:latest
+docker run --detach --name vaultwarden \
+  --env DOMAIN="https://vw.domain.tld" \
+  --volume /vw-data/:/data/ \
+  --restart unless-stopped \
+  --publish 127.0.0.1:8000:80 \
+  vaultwarden/server:latest
+```
+### 工具生成的标准化“图纸”：
+```
 services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
-    volumes:
-      - "/my_docker_root/vaultwarden/data:/data" # 路径、图纸、材料完美闭环
     ports:
-      - "8080:80"
-    restart: unless-stopped # 预设生产重启策略
-📄 开源协议
+      - "127.0.0.1:8000:80"
+    volumes:
+      - "/opt/docker/vaultwarden/vw-data/:/data/"
+    environment:
+      - "DOMAIN=https://vw.domain.tld"
+    restart: unless-stopped
+```
+### 📄 开源协议
 
 本项目采用 MIT License 协议开源。
 
