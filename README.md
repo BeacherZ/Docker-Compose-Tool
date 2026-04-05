@@ -42,14 +42,14 @@
 按自己的docker目录规划修改`volumes.js`中的映射卷默认绝对路径大目录。
 
 ### 本地运行：
-确保两个文件在同一目录下，直接用 Chrome 或 Edge 浏览器打开 `index.html`。
+直接用 Chrome 或 Edge 浏览器打开 `index.html`。
 
 ### 自建网站运行：
 将 `index.html` 和 `volumes.js` 文件上传到你自己的 Web 服务器根目录下，然后通过访问相应的 URL（例如 `http://docker.your-domain.com`）来运行。
 
 ### 一键转换：
 1. 粘贴从官方文档或 GitHub 看到的 `docker run` 命令或者示例 `compose.yaml` 规则。
-2. 确认生成的路径符合你的“统一大目录”规划。
+2. 确认`自定义卷映射绝对路径`符合你的“统一大目录”规划。
 3. 点击“转换为 Compose 配置”并一键复制。
 
 ### 快速部署：
