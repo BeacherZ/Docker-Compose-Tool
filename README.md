@@ -2,7 +2,7 @@
 
 让 Docker 部署告别碎片化，实现“一容器一目录”的标准化管理。
 
-搭建的网页示例：
+搭建的转换站示例：
 
 <img width="1762" height="892" alt="屏幕截图 2026-04-05 145302" src="https://github.com/user-attachments/assets/3bcb69d5-7efa-47e7-954e-43052f6b0a1d" />
 
