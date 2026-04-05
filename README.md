@@ -51,7 +51,7 @@
 3. 点击“转换为 Compose 配置”并一键复制。
 
 ### 快速部署：
-在你的统一目录下创建docker项目同名文件夹，将复制的代码存为 `compose.yaml`，然后 `cd` 进去执行 docker compose up -d 命令启动服务：
+在你的统一大目录下创建docker项目同名文件夹，将复制的代码存为 `compose.yaml`，然后 `cd` 进去执行 docker compose up -d 命令启动服务：
 
 ## 📄 转换对比示例
 原始 Docker Run 命令：
