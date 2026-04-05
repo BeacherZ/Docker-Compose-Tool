@@ -37,7 +37,9 @@
 ## 🛠️ 使用指南（下载即用）
 
 ### 获取文件：
-下载本仓库中的 `index.html` 和 `volumes.js`，按自己的docker目录规划修改`volumes.js`中的映射卷默认绝对路径大目录。
+下载本仓库中的 `index.html` 和 `volumes.js`
+
+按自己的docker目录规划修改`volumes.js`中的映射卷默认绝对路径大目录。
 
 ### 本地运行：
 确保两个文件在同一目录下，直接用 Chrome 或 Edge 浏览器打开 `index.html`。
