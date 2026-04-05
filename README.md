@@ -38,7 +38,7 @@
 确保两个文件在同一目录下，直接用 Chrome 或 Edge 浏览器打开 `index.html`。
 
 ### 自建网站运行：
-将 `index.html` 和 `volumes.js` 文件上传到你自己的 Web 服务器根目录下，然后通过访问相应的 URL（例如 `http://your-domain.com/index.html`）来运行。
+将 `index.html` 和 `volumes.js` 文件上传到你自己的 Web 服务器根目录下，然后通过访问相应的 URL（例如 `http://docker.your-domain.com`）来运行。
 
 ### 一键转换：
 1. 粘贴从官方文档或 GitHub 看到的 `docker run` 命令或者示例 `compose.yaml` 规则。
@@ -46,7 +46,7 @@
 3. 点击“转换为 Compose 配置”并一键复制。
 
 ### 快速部署：
-在你的统一目录下创建该 docker项目 同名文件夹，将代码存为 `compose.yaml`，然后执行 docker compose up -d 命令启动服务：
+在你的统一目录下创建docker项目同名文件夹，将代码存为 `compose.yaml`，然后 `cd` 进去执行 docker compose up -d 命令启动服务：
 
 ## 📄 转换对比示例
 原始 Docker Run 命令：
