@@ -62,7 +62,7 @@
 3.然后 `cd` 进去执行 docker compose up -d 命令启动服务：
 
 ## 📄 转换对比示例
-原始 Docker Run 命令：
+### 原始 Docker Run 命令：
 ```
 docker pull vaultwarden/server:latest
 docker run --detach --name vaultwarden \
