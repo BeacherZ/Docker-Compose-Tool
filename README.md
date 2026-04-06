@@ -41,11 +41,11 @@
 
 按自己的docker目录规划修改`volumes.js`中的映射卷默认绝对路径大目录。
 
-### 本地运行：
+### ->本地运行：
 直接用 Chrome 或 Edge 浏览器打开 `index.html`。
 
-### 自建网站运行：
-将 `index.html` 和 `volumes.js` 文件上传到你自己的 Web 服务器根目录下，然后通过访问相应的 URL（例如 `http://docker.your-domain.com`）来运行。
+### ->自建网站运行：
+将 `index.html` 和 `volumes.js` 文件上传到你自己的 Web 服务器根目录下，然后通过访问相应的 URL（例如 `http://compose.your-domain.com`）来运行。
 
 ### 一键转换：
 1. 粘贴从官方文档或 GitHub 看到的 `docker run` 命令或者示例 `compose.yaml` 规则。
@@ -72,7 +72,7 @@ docker run --detach --name vaultwarden \
   --publish 127.0.0.1:8000:80 \
   vaultwarden/server:latest
 ```
-### 工具生成的标准化“图纸”：
+### 工具生成的标准化 Docker Compose “图纸”：
 ```
 services:
   vaultwarden:
