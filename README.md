@@ -4,7 +4,8 @@
 
 ## 搭建的转换站示例：
 
-<img width="1762" height="892" alt="屏幕截图 2026-04-05 145302" src="https://github.com/user-attachments/assets/3bcb69d5-7efa-47e7-954e-43052f6b0a1d" />
+<img width="1761" height="891" alt="屏幕截图 2026-04-06 150238" src="https://github.com/user-attachments/assets/b0956763-928e-4701-b795-a80690711394" />
+
 
 
 ## 🏗️ 核心哲学
